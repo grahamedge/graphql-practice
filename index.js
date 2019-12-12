@@ -1,20 +1,6 @@
 const { ApolloServer, gql } = require('apollo-server')
-// const express = require('express')
-
-
-const typeDefs = gql`
-    type Greeting {
-        hello: String
-        goodbye: String
-    }
-
-    type Query {
-        greetings: [Greeting]
-    }
-    type Mutation {
-        addBook(hello: String, goodbye: String): Greeting
-    }
-`;
+const typeDefs = require('./schema')
+const resolvers = require('./resolvers')
 
 const greetings = [
     {
@@ -27,12 +13,6 @@ const greetings = [
         goodbye: 'Adios'
     }
 ]
-
-const resolvers = {
-    Query: {
-        greetings: () => greetings,
-    }, 
-};
 
 const server = new ApolloServer({ typeDefs, resolvers });
 
