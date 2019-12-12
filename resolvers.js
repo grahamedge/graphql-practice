@@ -15,11 +15,10 @@ const resolvers = {
         greetings: () => greetings,
     },
     Mutation: {
-        updateGreeting: (input) => {
-            const newGreetings = greetings
-            newGreetings.push(input)
+        updateGreeting: (_, input) => {
+            greetings.push(input)
             console.log(greetings)
-            return greetings
+            return input
         }
     }
 };
