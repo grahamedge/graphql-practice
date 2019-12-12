@@ -1,3 +1,15 @@
+const greetings = [
+  {
+      hello: 'Hello world',
+      goodbye: 'Goodbye world'
+
+  },
+  {
+      hello: 'Hola',
+      goodbye: 'Adios'
+  }
+]
+
 const resolvers = {
     Query: {
         greetings: () => greetings,
